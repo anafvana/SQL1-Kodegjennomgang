@@ -37,5 +37,8 @@ public class MotorvognController {
         rep.slettAlle();
     }
 
-    //TODO Add slettEn()
+    @GetMapping("/slettEn")
+    public void slettEn(String personnr){
+        rep.slettEn(personnr);
+    }
 }

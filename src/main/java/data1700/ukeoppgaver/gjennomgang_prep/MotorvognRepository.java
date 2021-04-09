@@ -34,4 +34,9 @@ public class MotorvognRepository {
         String sql = "DELETE FROM Motorvogn;";
         db.update(sql);
     }
+
+    public void slettEn(String personnr){
+        String sql = "DELETE FROM Motorvogn WHERE personnr=?;";
+        db.update(sql, personnr);
+    }
 }

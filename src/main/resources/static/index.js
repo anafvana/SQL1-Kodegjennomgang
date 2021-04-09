@@ -115,7 +115,7 @@ function formaterData(biler) {
         "<th>Kjennetegn</th><th>Merke</th><th>Type</th></tr>";
     for (const bil of biler) {
         ut += "<tr><td>" + bil.personnr + "</td><td>" + bil.navn + "</td><td>" + bil.adresse + "</td>" +
-            "<td>" + bil.kjennetegn + "</td><td>" + bil.merke + "</td><td>" + bil.type + "</tr>" ;
+            "<td>" + bil.kjennetegn + "</td><td>" + bil.merke + "</td><td>" + bil.type + "<td><button class='btn btn-danger' onclick='slettEn( \"" + bil.personnr + "\")'>Slett</button></td></tr>" ;
     }
     ut += "</table>";
     $("#bilene").html(ut);
@@ -128,4 +128,9 @@ function slettAlle() {
     });
 }
 
-//TODO Add slettEn()
+function slettEn(id){
+    let url = "/slettEn?personnr="+id;
+    $.get(url, function(){
+        hentAlle();
+    })
+}
