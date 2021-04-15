@@ -8,9 +8,13 @@ Implementing a registration system for customers to register vehicles.
 This application should have a client (JavaScript), a server (Java/Spring) and a database (MySQL).
 
 ## Changelog
-This version now include a database connection, which was demonstrated live. It also includes the changes requested during the lectures, *i.e.*:
+### v. 2.0
+This version now includes a database connection, which was demonstrated live. It also includes the changes requested during the lectures, *i.e.*:
 - Adding IDs to the Motorvogn, so that a same person can register multiple cars
 - Personnummer being defined as CHAR(11) (fixed-length string) // it can also be defined as BIGINT 
+
+### v. 1.0
+- This first version DOES NOT include a database connection, as it will be demonstrated live. 
 
 ## Cloning this repository
 1. Open the terminal (in IntelliJ or on your computer)
