@@ -9,11 +9,16 @@ This application should have a client (JavaScript), a server (Java/Spring) and a
 
 ## Changelog
 ### v. 2.0
-This version now includes a database connection, which was demonstrated live. It also includes the changes requested during the lectures, *i.e.*:
+This version now includes the changes requested during the lectures, *i.e.*:
 - Adding IDs to the Motorvogn, so that a same person can register multiple cars
 - Personnummer being defined as CHAR(11) (fixed-length string) // it can also be defined as BIGINT 
+- Motorvogn now has a foreign key to Biler. MotorvognRepository methods have been changed to query accordingly.
 
 ### v. 1.0
+- This version now includes a database connection, which was demonstrated live.
+- Data stored in the server (Biler, hard-coded) is transferred to the database
+
+### v. 0.1
 - This first version DOES NOT include a database connection, as it will be demonstrated live. 
 
 ## Cloning this repository
