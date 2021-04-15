@@ -1,6 +1,7 @@
 package data1700.ukeoppgaver.gjennomgang_prep;
 
 public class Motorvogn {
+    private int id;
     private String personnr;
     private String navn;
     private String adresse;
@@ -8,7 +9,8 @@ public class Motorvogn {
     private String merke;
     private String type;
 
-    public Motorvogn(String personnr, String navn, String adresse, String kjennetegn, String merke, String type) {
+    public Motorvogn(int id, String personnr, String navn, String adresse, String kjennetegn, String merke, String type) {
+        this.id = id;
         this.personnr = personnr;
         this.navn = navn;
         this.adresse = adresse;
@@ -18,6 +20,14 @@ public class Motorvogn {
     }
 
     public Motorvogn() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPersonnr() {

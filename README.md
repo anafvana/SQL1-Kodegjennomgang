@@ -2,11 +2,17 @@
 
 This is the base code for the kodegjennomgang for module SQL1 from DATA1700 - Webprogrammering.
 
-This first version DOES NOT include a database connection, as it will be demonstrated live. 
+## Task 
+Implementing a registration system for customers to register vehicles. 
 
-The final version of the code will be uploaded after the kodegjennomgang of 09/04/2021.
+This application should have a client (JavaScript), a server (Java/Spring) and a database (MySQL).
 
-### To clone this repository
+## Changelog
+This version now include a database connection, which was demonstrated live. It also includes the changes requested during the lectures, *i.e.*:
+- Adding IDs to the Motorvogn, so that a same person can register multiple cars
+- Personnummer being defined as CHAR(11) (fixed-length string) // it can also be defined as BIGINT 
+
+## Cloning this repository
 1. Open the terminal (in IntelliJ or on your computer)
 2. Go to the directory where you will clone this repo by using `cd directory/subdirectory/subsubdirectory...`
 3. (OPTIONAL) If you want to create a new folder, use `mkdir foldername` and then go into that folder with `cd foldername`

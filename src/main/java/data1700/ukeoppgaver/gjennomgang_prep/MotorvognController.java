@@ -14,12 +14,9 @@ public class MotorvognController {
     @Autowired
     MotorvognRepository rep;
 
-    private final List<Motorvogn> motorvognList= new ArrayList<>();
-    private final List<Bil> bilList = new ArrayList<>();
-
     @PostMapping("/lagre")
-    public void lagreKunde(Motorvogn bil){
-        rep.lagreKunde(bil);
+    public void lagreKunde(Motorvogn motorvogn){
+        rep.lagreKunde(motorvogn);
     }
 
     @GetMapping("/hentAlle")
@@ -38,7 +35,7 @@ public class MotorvognController {
     }
 
     @GetMapping("/slettEn")
-    public void slettEn(String personnr){
-        rep.slettEn(personnr);
+    public void slettEn(int id){
+        rep.slettEn(id);
     }
 }

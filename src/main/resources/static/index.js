@@ -79,6 +79,7 @@ function regMotorvogn() {
     const typ = $("#type").val();
 
     // Did you know you can do maths with boolean values? True = 1; False = 0.
+    // If any of the fields is false, it will be a multiplication by 0. Therefore the result is 0 = false.
     let riktig = sjekkGyldig(pnr, "Personnummer") *  sjekkGyldig(nvn, "Navn") *  sjekkGyldig(add, "Adresse") *  sjekkGyldig(kjt, "Kjennetegn") *  sjekkGyldig(mrk, "Merke") *  sjekkGyldig(typ, "Type");
 
     if (riktig){
@@ -97,14 +98,14 @@ function regMotorvogn() {
         $("#navn").val("");
         $("#adresse").val("");
         $("#kjennetegn").val("");
-        $("#merke").val("");
-        $("#type").val("");
+        $("#merke").val("--Velg merke--");
+        $("#type").val("--Velg type--");
     }
 }
 
 /** Fetches all Motorvogn entries */
 function hentAlle() {
-    $.get( "/hentAlle", function( biler ) {
+    $.get( "/hentAlle", function(biler) {
         formaterData(biler);
     });
 }
@@ -115,7 +116,7 @@ function formaterData(biler) {
         "<th>Kjennetegn</th><th>Merke</th><th>Type</th></tr>";
     for (const bil of biler) {
         ut += "<tr><td>" + bil.personnr + "</td><td>" + bil.navn + "</td><td>" + bil.adresse + "</td>" +
-            "<td>" + bil.kjennetegn + "</td><td>" + bil.merke + "</td><td>" + bil.type + "<td><button class='btn btn-danger' onclick='slettEn( \"" + bil.personnr + "\")'>Slett</button></td></tr>" ;
+            "<td>" + bil.kjennetegn + "</td><td>" + bil.merke + "</td><td>" + bil.type + "<td><button class='btn btn-danger' onclick='slettEn(" + bil.id + ")'>Slett</button></td></tr>" ;
     }
     ut += "</table>";
     $("#bilene").html(ut);
@@ -128,8 +129,13 @@ function slettAlle() {
     });
 }
 
+/** Deletes one single entry using its ID as identifier.
+ * @param {number}  id   Entry id. Hidden in HTML, but available from database/server/client.
+ *
+ * N.B.: Can also be done with the personnr, if you don't want to include the possibility of a person having multiple cars.
+ */
 function slettEn(id){
-    let url = "/slettEn?personnr="+id;
+    let url = "/slettEn?id="+id;
     $.get(url, function(){
         hentAlle();
     })
